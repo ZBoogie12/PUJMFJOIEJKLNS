@@ -17,21 +17,76 @@ while finished == False:
     for y in range(0, 12):
         if y == 0 or y == 11:
             for x in range(3, 12):
-                print(str(x) + "," + str(y))
                 pic[x][y] = (230, 140, 9, 255)
         else:
             for x in range (1, 10):
                 pic[2][y] = (230, 140, 9, 255)
                 pic[12][y] = (230, 140, 9, 255)
+                
     pic[0][5] = (255, 251, 230, 255)
     pic[0][6] = (255, 251, 230, 255)
     pic[1][5] = (255, 251, 230, 255)
     pic[1][6] = (245, 245, 220, 255)
+    
     finished = True
 
 # Step two: Create eyes
+pic[2][y] = (230, 140, 9, 255)
+pic[12][y] = (230, 140, 9, 255)
+pic[0][5] = (40, 26, 13, 255)
+pic[0][6] = (40, 26, 13, 255)
+pic[1][5] = (40, 26, 13, 255)
+pic[1][6] = (40, 26, 13, 255)
+pic[4][3] = (0, 0, 0, 255)
+pic[4][4] = (0, 0, 0, 255)
+pic[5][3] = (0, 0, 0, 255)
+pic[5][4] = (0, 0, 0, 255)
+pic[4][8] = (0, 0, 0, 255)
+pic[5][8] = (0, 0, 0, 255)
+pic[6][8] = (0, 0, 0, 255)
+pic[4][7] = (0, 0, 0, 255)
+pic[5][7] = (0, 0, 0, 255)
+pic[6][7] = (0, 0, 0, 255)
+finished = True
 
-pic
+
+# Step three: Teeth
+for y in range(3, 9):
+    if y == 4 or y == 7:
+        pic[9][y] = (255, 255, 0, 255)
+        pic[10][y] = (0, 0, 0, 255)
+    else:
+        pic[9][y] = (0, 0, 0, 255)
+        pic[10][y] = (255, 255, 0, 255)
+
+         
+
+# Step four: background color
+
+for x in range (0,2):
+    for y in range (0,5):
+        pic[x][y] = (0, 0, 0,255)
+for x in range (0,2):
+    for y in range (7, 12):
+        pic[x][y] = (0, 0, 0,255)
+pic[12][0] = (0, 0, 0, 255)
+pic[2][11] = (0, 0, 0, 255)
+pic[2][0] = (0, 0, 0, 255)
+pic[12][11] = (0, 0, 0, 255)
+pic[0][11] = (0, 0, 0, 255)
+pic[4][y] = (230, 140, 9, 255)
+
+for x in range (3, 12):
+    for y in range(1, 11):
+        print(str(x) + ',' + str(y))
+        print(str(pic[x][y]))
+        if np.all(pic[x][y] == (255, 255, 255, 255)):
+            print("True")
+            pic[x][y] = (200, 111, 9, 225)
+for y in range(1, 11):
+    for x in range(3, 11):
+        if pic[x][y].all == (255, 255, 255, 255):
+            pic[x][y] = (254, 216, 177, 255)
 fig, ax = plt.subplots(1, 1)
 ax.imshow(pic)
 fig.show()  
